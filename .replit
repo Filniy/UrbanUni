@@ -1,0 +1,5 @@
+run = "python module_2/module_2_2.py"
+modules = ["python-3.12"]
+
+[deployment]
+run = ["sh", "-c", "python module_1_7.py"]
