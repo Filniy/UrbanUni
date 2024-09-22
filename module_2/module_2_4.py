@@ -3,9 +3,6 @@ primes = []
 not_primes = []
 for number in numbers[1:len(
     numbers)]:  # пропуск первого элемента, т.к. он не является простым числом
-  if number == 1:
-    not_primes.append(number)
-    continue
   for i in range(2, number):
     if number % i == 0:
       not_primes.append(number)
