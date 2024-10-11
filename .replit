@@ -1,4 +1,4 @@
-run = "python module_4/module_4_1/module_4_1.py"
+run = "python module_4/module_4_2.py"
 modules = ["python-3.12"]
 
 [deployment]
