@@ -43,7 +43,7 @@ class AquaticAnimal(Animal):
   
   def dive_in(self, dz):
 
-    self._cords[2] =- abs(dz) * self.speed # Данный алгоритм не подходит
+    self._cords[2] =- abs(dz) * self.speed  / 2 # Данный алгоритм не подходит
     if self._cords[2] <= 0: # Добавляем новое условие для осуществления логики, чтобы выходные данные задачи соотвествовали с выходными этого модуля
       self._cords[2] = 0
 
