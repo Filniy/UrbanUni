@@ -10,7 +10,7 @@ class Animal:
     self.speed = speed
     self._cords = _coords
 
-  def move(self, dx, dy, dz):
+  def move(self, dx: int, dy: int, dz: int) -> int:
     new_x = self._cords[0] + dx * self.speed
     new_y = self._cords[1] + dy * self.speed
     new_z = self._cords[2] + dz * self.speed
@@ -29,7 +29,7 @@ class Animal:
     elif self._DEGREE_OF_DANGER > 5:
         print("Be careful, i'm attacking you 0_0")
   
-  def speak(self):
+  def speak(self): # Об этом методе не упоминалось ничего в задании, но в входных данных задачи он был...
     print(self.sound)
 
 class Bird(Animal):
@@ -39,20 +39,19 @@ class Bird(Animal):
     print(f"Here are(is) {random.randint(1,4)} eggs for you")
 
 class AquaticAnimal(Animal):
-  
   _DEGREE_OF_DANGER = 3.
   
   def dive_in(self, dz):
-    self._cords[2] =- abs(dz*2) * self.speed
-    if self._cords[2] <= 0:
+
+    self._cords[2] =- abs(dz) * self.speed # Данный алгоритм не подходит
+    if self._cords[2] <= 0: # Добавляем новое условие для осуществления логики, чтобы выходные данные задачи соотвествовали с выходными этого модуля
       self._cords[2] = 0
 
 class PoisonousAnimal(Animal):
   _DEGREE_OF_DANGER = 8
 
-class Duckbill(Bird, PoisonousAnimal, AquaticAnimal):
+class Duckbill(PoisonousAnimal, AquaticAnimal, Bird): # _DEGREE_OF_DANGER он находит первее в PoisounousAnimal когда проходит по классам. Также класс Animal и Object наследуется от PoisonousAnimal, AquaticAnimal, Bird.
   sound = "Click-click-click"
-
 
 
 db = Duckbill(10)
